@@ -1,5 +1,25 @@
+require 'pry'
+
 class WordCounter
-  # Your code goes here
+  def initialize length, word_array
+    @length = length
+    @whatever_i_want = word_array
+  end
+
+  def word_length
+    @length
+  end
+
+  def count_of_words_matching_length
+    # @whatever_i_want.select { |w| w.length == 5 }.count
+    count = 0
+    @whatever_i_want.each do |word|
+      if word.length == @length
+        count = count + 1
+      end
+    end
+    count
+  end
 end
 
 dictionary = File.read("/usr/share/dict/words").split
